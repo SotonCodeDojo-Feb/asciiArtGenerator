@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * ASCII Art Generator
@@ -12,19 +13,23 @@ public class asciiGenerator {
 
     }
 
-    private Image loadImage (String image) {
+    //
+    private BufferedImage loadImage (BufferedImage image) {
 
     }
 
-    private Image resizeImage (Image image) {
+    // Hannah
+    private BufferedImage resizeImage (BufferedImage image) {
 
     }
 
-    private Image convertToGreyScale (Image image) {
+    // Jamie's Task
+    private BufferedImage convertToGreyScale (BufferedImage image) {
 
     }
 
-    private String getASCII (Image image){
-
+    // Huw's Job
+    private String getASCII (BufferedImage image){
+        for(int x = 0; x < image.)
     }
 }
