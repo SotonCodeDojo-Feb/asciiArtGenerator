@@ -61,7 +61,7 @@ public class asciiGenerator {
 
         for (int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
-                float luminosity = ( image.getRGB(x, y) & 0xff ) / 16f;
+                float luminosity = ( image.getRGB(x, y) & 0xff ) / this.charMap.size();
                 int charValue = Double.valueOf(Math.floor(luminosity)).intValue();
 
                 picture += this.charMap.get(charValue);
