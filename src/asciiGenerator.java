@@ -15,11 +15,18 @@ public class asciiGenerator {
 
     private HashMap<Integer, Character> charMap;
 
-    public asciiGenerator (String picture) {
+    public asciiGenerator (String imageFile) {
         if (!loadCharMap()) {
             System.err.println("Failed to load character map.\n Quitting...");
             return;
         }
+
+        BufferedImage image;
+        image = this.loadImage(imageFile);
+        image = this.resizeImage(image);
+        image = this.convertToGreyScale(image);
+        String output = this.getASCII(image);
+        System.out.println(output);
     }
 
     private boolean loadCharMap () {
