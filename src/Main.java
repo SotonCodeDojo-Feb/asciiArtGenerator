@@ -15,9 +15,11 @@ public class Main {
         File image = new File(args[0]);
         if(!image.exists()){
             System.err.println("Image \"" + args[0] + "\" not found!");
+            return;
         }
         if(!image.canRead()){
             System.err.println("Image \"" + args[0] + "\" could not be opened!");
+            return;
         }
 
         asciiGenerator generator = new asciiGenerator(args[0]);
