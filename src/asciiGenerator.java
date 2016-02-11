@@ -1,9 +1,12 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.json.*;
+
+import javax.imageio.ImageIO;
 
 /**
  * ASCII Art Generator
@@ -38,23 +41,32 @@ public class asciiGenerator {
 
     //
     private BufferedImage loadImage (String imageFile) {
-
+        BufferedImage buffered = null;
+        try {
+            Image image = ImageIO.read(new File(imageFile));
+            buffered = (BufferedImage) image;
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return buffered;
     }
 
+
     // Hannah
-    public BufferedImage getResizedImage(BufferedImage img, int width){
+    public BufferedImage getResizedImage (BufferedImage img, int width) {
         int currentHeight = img.getHeight();
         int currentWidth = img.getWidth();
 
         int newWidth = width;
-        int newHeight = width * currentWidth/currentHeight;
+        int newHeight = width * currentWidth / currentHeight;
 
         BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, img.getType());
         Graphics2D grp = resizedImage.createGraphics();
         grp.drawImage(img, 0, 0, newWidth, newHeight, null);
         grp.dispose();
 
-        return(resizedImage);
+        return ( resizedImage );
     }
 
 
