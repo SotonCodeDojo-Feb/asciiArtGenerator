@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.HashMap;
+import org.json.*;
 
 /**
  * ASCII Art Generator
@@ -20,6 +22,10 @@ public class asciiGenerator {
     }
 
     private boolean loadCharMap(){
+        File map = new File("map.json");
+        if(!map.exists() || !map.canRead()){
+            return false;
+        }
 
     }
 
