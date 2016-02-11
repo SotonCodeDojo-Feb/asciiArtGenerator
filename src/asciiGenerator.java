@@ -23,7 +23,7 @@ public class asciiGenerator {
 
         BufferedImage image;
         image = this.loadImage(imageFile);
-        image = this.resizeImage(image, 512);
+        image = this.getResizedImage(image, 512);
         image = this.convertToGreyScale(image);
         String output = this.getASCII(image);
         System.out.println(output);
