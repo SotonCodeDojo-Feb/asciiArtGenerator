@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 
 /**
  * ASCII Art Generator
@@ -9,13 +10,17 @@ import java.awt.image.BufferedImage;
  */
 public class asciiGenerator {
 
-    public asciiGenerator (String imageFile) {
-        BufferedImage image;
-        image = this.loadImage(imageFile);
-        image = this.resizeImage(image);
-        image = this.convertToGreyScale(image);
-        String output = this.getASCII(image);
-        System.out.println(output);
+    private HashMap<Integer, Character> charMap;
+
+    public asciiGenerator (String picture) {
+        if(!loadCharMap()){
+            System.err.println("Failed to load character map.\n Quitting...");
+            return;
+        }
+    }
+
+    private boolean loadCharMap(){
+
     }
 
     //
@@ -45,7 +50,17 @@ public class asciiGenerator {
     }
 
     // Huw's Job
-    private String getASCII (BufferedImage image){
-        for(int x = 0; x < image.)
+    private String getASCII (BufferedImage image) {
+
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                float luminosity = (image.getRGB(x, y) & 0xff) / 16f;
+                int charValue = Double.valueOf(Math.floor(luminosity)).intValue();
+
+
+            }
+        }
+
+
     }
 }
