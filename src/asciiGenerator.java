@@ -42,9 +42,21 @@ public class asciiGenerator {
     }
 
     // Hannah
-    private BufferedImage resizeImage (BufferedImage image) {
+    public BufferedImage getResizedImage(BufferedImage img, int width){
+        int currentHeight = img.getHeight();
+        int currentWidth = img.getWidth();
 
+        int newWidth = width;
+        int newHeight = width * currentWidth/currentHeight;
+
+        BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, img.getType());
+        Graphics2D grp = resizedImage.createGraphics();
+        grp.drawImage(img, 0, 0, newWidth, newHeight, null);
+        grp.dispose();
+
+        return(resizedImage);
     }
+
 
     // Jamie's Task
     private BufferedImage convertToGreyScale (BufferedImage image) {
